@@ -9,14 +9,7 @@ package cl.pablo.lopezpabloexamenpyg;
  * @author pablo
  */
 public class Cliente {
-    private String rut;
-    private String nombre;
-    private String correo;
-    private String telefono;
-    private int numero;
    
-    public Cliente() {
-    }
 
     public Cliente(String rut, String nombre, String correo, String telefono) {
         this.rut = rut;

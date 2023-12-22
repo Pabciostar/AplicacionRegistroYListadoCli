@@ -103,6 +103,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_menu_reg_cliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menu_reg_cliActionPerformed

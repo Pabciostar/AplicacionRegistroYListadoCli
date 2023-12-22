@@ -15,8 +15,8 @@ public class Desktop extends Equipo {
     public Desktop() {
     }
 
-    public Desktop(String fuentePoder, String factorForma, String modelo, String cpu, String discoDuro, String ram, int precio) {
-        super(modelo, cpu, discoDuro, ram, precio);
+    public Desktop(String fuentePoder, String factorForma, String modelo, String cpu, String discoDuro, String ram, int precio, String tipoEquipo) {
+        super(modelo, cpu, discoDuro, ram, precio, tipoEquipo);
         this.fuentePoder = fuentePoder;
         this.factorForma = factorForma;
     }
@@ -39,7 +39,7 @@ public class Desktop extends Equipo {
 
     @Override
     public String toString() {
-        return "Desktop{" + "fuentePoder=" + fuentePoder + ", factorForma=" + factorForma + '}';
+        return super.toString() + "Desktop{" + "fuentePoder=" + fuentePoder + ", factorForma=" + factorForma + '}';
     }
     
     

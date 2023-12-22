@@ -67,6 +67,22 @@ public final class ArraysDB {
         
         return listaCli;
     }
+    
+//    public List<Equipo> listar_equipos (){
+//        List<Equipo> listaEqui = new ArrayList();
+//        equipos.forEach(equipo -> {
+//            Equipo dbEqui = new Equipo();
+//            dbEqui.setCpu(equipo.getCpu());
+//            dbEqui.setDiscoDuro(equipo.getDiscoDuro());
+//            dbEqui.setDiscoDuro(equipo.getDiscoDuro());
+//            dbCli.setNombre(cliente.getNombre());
+//            dbCli.setCorreo(cliente.getCorreo());
+//            dbCli.setTelefono(cliente.getTelefono());
+//            listaCli.add(cliente);
+//        });
+//        
+//        return listaCli;
+//    }
 
     
     

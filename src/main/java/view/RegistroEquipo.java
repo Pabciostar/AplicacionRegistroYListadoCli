@@ -272,7 +272,7 @@ public class RegistroEquipo extends javax.swing.JFrame {
                 String factorForma = txt_fact_form_desk.getText();
                 String fuentePoder = txt_fuent_pod_desk.getText();
 
-                Desktop desktop = new Desktop(fuentePoder, factorForma, modelEq, cpu, tamDiscDur, ram, precioInt, "desktop");
+                Desktop desktop = new Desktop(fuentePoder, factorForma, modelEq, cpu, tamDiscDur, ram, precioInt, "Desktop");
 
                 ArraysDB DB = ArraysDB.getConexion();
 
@@ -284,7 +284,7 @@ public class RegistroEquipo extends javax.swing.JFrame {
 
                 int cantUsbInt = Integer.parseInt(cantUsbString);
 
-                Laptop laptop = new Laptop(tamPant, cantUsbInt, modelEq, cpu, tamDiscDur, ram, precioInt, "laptop");
+                Laptop laptop = new Laptop(tamPant, cantUsbInt, modelEq, cpu, tamDiscDur, ram, precioInt, "Laptop");
 
                 ArraysDB DB = ArraysDB.getConexion();
 
@@ -302,6 +302,9 @@ public class RegistroEquipo extends javax.swing.JFrame {
 
     private void btn_lista_eqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lista_eqActionPerformed
         // TODO add your handling code here:
+        ListadoEquipos listadoEquipos = new ListadoEquipos();
+        listadoEquipos.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btn_lista_eqActionPerformed
 
     private void cbx_Tipo_EquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_Tipo_EquipoActionPerformed

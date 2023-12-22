@@ -13,6 +13,7 @@ view\ListadoEquipos$1.class
 view\ListadoEquipos.class
 view\ListadoClientes.class
 view\RegistroEquipo$3.class
+view\ListadoEquipos$3.class
 view\RegistroCliente.class
 cl\pablo\lopezpabloexamenpyg\Laptop.class
 view\Informes.class
@@ -26,6 +27,7 @@ view\MenuPrincipal$3.class
 view\RegistroCliente$4.class
 view\RegistroEquipo$2.class
 view\IniciarVenta$1.class
+view\ListadoEquipos$2.class
 view\IniciarVenta.class
 view\RegistroCliente$1.class
 view\MenuPrincipal$4.class

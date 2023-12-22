@@ -5,6 +5,7 @@
 package view;
 
 import cl.pablo.lopezpabloexamenpyg.Cliente;
+import cl.pablo.lopezpabloexamenpyg.Equipo;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.ArraysDB;
@@ -20,16 +21,36 @@ public class ListadoEquipos extends javax.swing.JFrame {
      */
     public ListadoEquipos() {
         initComponents();
-//        ArraysDB DB = ArraysDB.getConexion();
-//        List<Equipo> listEqui = DB.listar_clientes();
-//        tbl_lista_clientes.setModel(new DefaultTableModel (new String[]{
-//        "Nombre",
-//        "Rut",
-//        "Correo",
-//        "Telefono",
-//        }, listCli.size()
-//        ));
+        ArraysDB DB = ArraysDB.getConexion();
+        List<Equipo> listEqui = DB.listar_equipos();
+        tbl_lista_equipos.setModel(new DefaultTableModel (new String[]{
+        "Modelo",
+        "CPU",
+        "Tamaño disco duro",
+        "Tamaño memoria RAM",
+        "Precio",
+        "Tipo de equipo",
+        "Tamaño de la pantalla \n solo Laptop",
+        "Cantidad de puertos USB \n solo Laptop",
+        "Factor forma \n solo Desktop",
+        "Fuente de poder \n solo Desktop",
+        }, listEqui.size()
+        ));
+        
+        
+        for(int i = 0; i < listEqui.size(); i++){
+            String precioString = String.valueOf(listEqui.get(i).getPrecio());
+            tbl_lista_equipos.setValueAt(listEqui.get(i).getModelo(), i, 0);
+            tbl_lista_equipos.setValueAt(listEqui.get(i).getCpu(), i, 1);
+            tbl_lista_equipos.setValueAt(listEqui.get(i).getDiscoDuro(), i, 2);
+            tbl_lista_equipos.setValueAt(listEqui.get(i).getRam(), i, 3);
+            tbl_lista_equipos.setValueAt(precioString, i, 4);
+            tbl_lista_equipos.setValueAt(listEqui.get(i).getTipoEquipo(), i, 5);
+            
+        }
     }
+    
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,11 +62,14 @@ public class ListadoEquipos extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbl_lista_equipos = new javax.swing.JTable();
+        btn_volver = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        cbx_filtrarPor = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_lista_equipos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -56,7 +80,23 @@ public class ListadoEquipos extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbl_lista_equipos);
+
+        btn_volver.setText("Volver");
+        btn_volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_volverActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("REGISTRO DE EQUIPOS");
+
+        cbx_filtrarPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por:", "Desktop", "Laptop" }));
+        cbx_filtrarPor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbx_filtrarPorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,18 +104,51 @@ public class ListadoEquipos extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cbx_filtrarPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 46, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(13, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(cbx_filtrarPor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_volver)
+                .addGap(9, 9, 9))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
+        // TODO add your handling code here:
+        RegistroEquipo registroEquipo = new RegistroEquipo();
+        registroEquipo.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btn_volverActionPerformed
+
+    private void cbx_filtrarPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_filtrarPorActionPerformed
+        // TODO add your handling code here:
+        if(cbx_filtrarPor.getSelectedItem().equals("Filtrar por")){
+            tbl_lista_equipos.setVisible(true);
+        
+        }
+    }//GEN-LAST:event_cbx_filtrarPorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,7 +186,10 @@ public class ListadoEquipos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_volver;
+    private javax.swing.JComboBox<String> cbx_filtrarPor;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbl_lista_equipos;
     // End of variables declaration//GEN-END:variables
 }

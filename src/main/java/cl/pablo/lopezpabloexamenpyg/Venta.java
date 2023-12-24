@@ -4,61 +4,53 @@
  */
 package cl.pablo.lopezpabloexamenpyg;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author pablo
  */
 public class Venta {
-    private Cliente cliente;
-    private Equipo equipo;
-    private String fecha;
-    private String hora;
+    private String nombreCliente;
+    private String rutCliente;
+    private LocalDateTime fecha;
 
     public Venta() {
     }
 
-    public Venta(Cliente cliente, Equipo equipo, String fecha, String hora) {
-        this.cliente = cliente;
-        this.equipo = equipo;
+    public Venta(String nombreCliente, String rutCliente, LocalDateTime fecha) {
+        this.nombreCliente = nombreCliente;
+        this.rutCliente = rutCliente;
         this.fecha = fecha;
-        this.hora = hora;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 
-    public Equipo getEquipo() {
-        return equipo;
+    public String getRutCliente() {
+        return rutCliente;
     }
 
-    public void setEquipo(Equipo equipo) {
-        this.equipo = equipo;
+    public void setRutCliente(String rutCliente) {
+        this.rutCliente = rutCliente;
     }
 
-    public String getFecha() {
+    public LocalDateTime getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
-    }
-
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
     }
 
     @Override
     public String toString() {
-        return "Venta{" + "cliente=" + cliente + ", equipo=" + equipo + ", fecha=" + fecha + ", hora=" + hora + '}';
+        return "Venta{" + "nombreCliente=" + nombreCliente + ", rutCliente=" + rutCliente + ", fecha=" + fecha + '}';
     }
     
     

@@ -114,6 +114,19 @@ public final class ArraysDB {
         
         return listaEquip;
     }
+    //Si encuentra un cliente por rut, lo devuelve. Si no lo encuentra devuelve uno vacío;
+    public Cliente buscarCliente(String rutIngresado){
+        Cliente clienteSeleccionado = new Cliente();
+        clientes.forEach(cliente -> {
+            if (cliente.getRut().equals(rutIngresado)){
+                clienteSeleccionado.setRut(cliente.getRut());
+                clienteSeleccionado.setNombre(cliente.getNombre());
+                clienteSeleccionado.setCorreo(cliente.getCorreo());
+                clienteSeleccionado.setTelefono(cliente.getTelefono());
+            }
+        });
+        return clienteSeleccionado;
+    }
 
     
     

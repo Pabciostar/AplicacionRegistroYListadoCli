@@ -8,22 +8,24 @@ package cl.pablo.lopezpabloexamenpyg;
  *
  * @author pablo
  */
-public abstract class Equipo {
+public class Equipo {
     private String modelo;
     private String cpu;
     private String discoDuro;
     private String ram;
     private int precio;
+    private String tipoEquipo;
 
     public Equipo() {
     }
 
-    public Equipo(String modelo, String cpu, String discoDuro, String ram, int precio) {
+    public Equipo(String modelo, String cpu, String discoDuro, String ram, int precio, String tipoEquipo) {
         this.modelo = modelo;
         this.cpu = cpu;
         this.discoDuro = discoDuro;
         this.ram = ram;
         this.precio = precio;
+        this.tipoEquipo = tipoEquipo;
     }
 
     public String getModelo() {
@@ -65,6 +67,16 @@ public abstract class Equipo {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
+
+    public String getTipoEquipo() {
+        return tipoEquipo;
+    }
+
+    public void setTipoEquipo(String tipoEquipo) {
+        this.tipoEquipo = tipoEquipo;
+    }
+    
+    
 
     @Override
     public String toString() {

@@ -20,6 +20,14 @@ public class RegistroEquipo extends javax.swing.JFrame {
      */
     public RegistroEquipo() {
         initComponents();
+        lbl_cant_lap.setVisible(false);
+        lbl_tam_lap.setVisible(false);
+        txt_cant_usb_lap.setVisible(false);
+        txt_tam_panta_lap.setVisible(false);
+        lbl_fac_desk.setVisible(false);
+        lbl_fuent_desk.setVisible(false);
+        txt_fact_form_desk.setVisible(false);
+        txt_fuent_pod_desk.setVisible(false);
     }
 
     /**
@@ -31,8 +39,6 @@ public class RegistroEquipo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_desk_true = new javax.swing.JButton();
-        btn_lap_true = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -56,22 +62,9 @@ public class RegistroEquipo extends javax.swing.JFrame {
         btn_guardar_eq = new javax.swing.JButton();
         btn_volver = new javax.swing.JButton();
         btn_lista_eq = new javax.swing.JButton();
+        cbx_Tipo_Equipo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btn_desk_true.setText("Desktop");
-        btn_desk_true.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_desk_trueActionPerformed(evt);
-            }
-        });
-
-        btn_lap_true.setText("Laptop");
-        btn_lap_true.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_lap_trueActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("¿Qué tipo de equipo desea registrar?");
 
@@ -122,6 +115,13 @@ public class RegistroEquipo extends javax.swing.JFrame {
             }
         });
 
+        cbx_Tipo_Equipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Desktop", "Laptop" }));
+        cbx_Tipo_Equipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbx_Tipo_EquipoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -161,6 +161,7 @@ public class RegistroEquipo extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_tam_panta_lap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txt_ram_eq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -168,15 +169,12 @@ public class RegistroEquipo extends javax.swing.JFrame {
                                             .addComponent(txt_prec_eq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txt_modelo_eq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txt_cpu_eq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(66, 66, 66)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(btn_lap_true)
-                                                    .addComponent(btn_desk_true)))))
-                                    .addComponent(txt_tam_panta_lap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(cbx_Tipo_Equipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(54, 54, 54))))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(82, 82, 82)
                         .addComponent(btn_guardar_eq)
@@ -184,34 +182,16 @@ public class RegistroEquipo extends javax.swing.JFrame {
                         .addComponent(btn_volver)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_lista_eq)))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(btn_desk_true))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(btn_lap_true))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
+                        .addGap(24, 24, 24)
                         .addComponent(txt_modelo_eq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txt_cpu_eq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,7 +201,25 @@ public class RegistroEquipo extends javax.swing.JFrame {
                         .addComponent(txt_ram_eq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txt_prec_eq, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbx_Tipo_Equipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(114, 114, 114)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -249,76 +247,49 @@ public class RegistroEquipo extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    
     boolean desk;
     boolean lap;
-    private void btn_desk_trueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_desk_trueActionPerformed
-        // TODO add your handling code here:
-        lbl_cant_lap.setVisible(false);
-        lbl_tam_lap.setVisible(false);
-        txt_cant_usb_lap.setVisible(false);
-        txt_tam_panta_lap.setVisible(false);
-        lbl_fac_desk.setVisible(true);
-        lbl_fuent_desk.setVisible(true);
-        txt_fact_form_desk.setVisible(true);
-        txt_fuent_pod_desk.setVisible(true);
-        desk = true;
-        lap = false;
-    }//GEN-LAST:event_btn_desk_trueActionPerformed
-
     private void txt_modelo_eqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_modelo_eqActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_modelo_eqActionPerformed
 
-    private void btn_lap_trueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lap_trueActionPerformed
-        // TODO add your handling code here:
-        lbl_fac_desk.setVisible(false);
-        lbl_fuent_desk.setVisible(false);
-        txt_fact_form_desk.setVisible(false);
-        txt_fuent_pod_desk.setVisible(false);
-        lbl_cant_lap.setVisible(true);
-        lbl_tam_lap.setVisible(true);
-        txt_cant_usb_lap.setVisible(true);
-        txt_tam_panta_lap.setVisible(true);
-        desk = false;
-        lap = true;
-    }//GEN-LAST:event_btn_lap_trueActionPerformed
-
     private void btn_guardar_eqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardar_eqActionPerformed
         // TODO add your handling code here:
-        String modelEq = txt_modelo_eq.getText();
-        String cpu = txt_cpu_eq.getText();
-        String tamDiscDur = txt_tam_eq.getText();
-        String ram = txt_ram_eq.getText();
-        String precioString = txt_prec_eq.getText();
-        int precioInt = Integer.parseInt(precioString);
-        
         if (txt_modelo_eq.getText().isEmpty() || txt_cpu_eq.getText().isEmpty() || txt_tam_eq.getText().isEmpty() || txt_ram_eq.getText().isEmpty() || txt_prec_eq.getText().isEmpty()) {
             System.out.println("Llene todos los campos por favor");
-        }else {
-            if (desk = true){
+        } else {
+            String modelEq = txt_modelo_eq.getText();
+            String cpu = txt_cpu_eq.getText();
+            String tamDiscDur = txt_tam_eq.getText();
+            String ram = txt_ram_eq.getText();
+            String precioString = txt_prec_eq.getText();
+            int precioInt = Integer.parseInt(precioString);
+            
+            if (cbx_Tipo_Equipo.getSelectedItem().equals("Desktop")) {
                 String factorForma = txt_fact_form_desk.getText();
                 String fuentePoder = txt_fuent_pod_desk.getText();
-                
-                Desktop desktop = new Desktop(fuentePoder,factorForma, modelEq, cpu, tamDiscDur, ram, precioInt);
-                
+
+                Desktop desktop = new Desktop(fuentePoder, factorForma, modelEq, cpu, tamDiscDur, ram, precioInt, "Desktop");
+
                 ArraysDB DB = ArraysDB.getConexion();
-                
+
                 DB.agregar_desktop(desktop);
-            }else if (lap = true) {
+                DB.equipos.forEach(equipo -> System.out.println(equipo));
+            } else {
                 String tamPant = txt_tam_panta_lap.getText();
                 String cantUsbString = txt_cant_usb_lap.getText();
-                
+
                 int cantUsbInt = Integer.parseInt(cantUsbString);
-                
-                Laptop laptop = new Laptop(tamPant, cantUsbInt, modelEq, cpu, tamDiscDur, ram, precioInt);
-                
+
+                Laptop laptop = new Laptop(tamPant, cantUsbInt, modelEq, cpu, tamDiscDur, ram, precioInt, "Laptop");
+
                 ArraysDB DB = ArraysDB.getConexion();
-                
+
                 DB.agregar_laptop(laptop);
-        }
+            }
         }
     }//GEN-LAST:event_btn_guardar_eqActionPerformed
 
@@ -331,7 +302,33 @@ public class RegistroEquipo extends javax.swing.JFrame {
 
     private void btn_lista_eqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lista_eqActionPerformed
         // TODO add your handling code here:
+        ListadoEquipos listadoEquipos = new ListadoEquipos();
+        listadoEquipos.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btn_lista_eqActionPerformed
+
+    private void cbx_Tipo_EquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_Tipo_EquipoActionPerformed
+        // TODO add your handling code here:
+        if (cbx_Tipo_Equipo.getSelectedItem().equals("Desktop")) {
+            lbl_cant_lap.setVisible(false);
+            lbl_tam_lap.setVisible(false);
+            txt_cant_usb_lap.setVisible(false);
+            txt_tam_panta_lap.setVisible(false);
+            lbl_fac_desk.setVisible(true);
+            lbl_fuent_desk.setVisible(true);
+            txt_fact_form_desk.setVisible(true);
+            txt_fuent_pod_desk.setVisible(true);
+        } else {
+            lbl_cant_lap.setVisible(true);
+            lbl_tam_lap.setVisible(true);
+            txt_cant_usb_lap.setVisible(true);
+            txt_tam_panta_lap.setVisible(true);
+            lbl_fac_desk.setVisible(false);
+            lbl_fuent_desk.setVisible(false);
+            txt_fact_form_desk.setVisible(false);
+            txt_fuent_pod_desk.setVisible(false);
+        }
+    }//GEN-LAST:event_cbx_Tipo_EquipoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -369,11 +366,10 @@ public class RegistroEquipo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_desk_true;
     private javax.swing.JButton btn_guardar_eq;
-    private javax.swing.JButton btn_lap_true;
     private javax.swing.JButton btn_lista_eq;
     private javax.swing.JButton btn_volver;
+    private javax.swing.JComboBox<String> cbx_Tipo_Equipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

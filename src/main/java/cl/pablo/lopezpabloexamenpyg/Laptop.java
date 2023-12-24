@@ -15,8 +15,8 @@ public class Laptop extends Equipo {
     public Laptop() {
     }
 
-    public Laptop(String tamañoPantalla, int cantUsb, String modelo, String cpu, String discoDuro, String ram, int precio) {
-        super(modelo, cpu, discoDuro, ram, precio);
+    public Laptop(String tamañoPantalla, int cantUsb, String modelo, String cpu, String discoDuro, String ram, int precio, String tipoEquipo) {
+        super(modelo, cpu, discoDuro, ram, precio, tipoEquipo);
         this.tamañoPantalla = tamañoPantalla;
         this.cantUsb = cantUsb;
     }
@@ -39,7 +39,7 @@ public class Laptop extends Equipo {
 
     @Override
     public String toString() {
-        return "Laptop{" + "tama\u00f1oPantalla=" + tamañoPantalla + ", cantUsb=" + cantUsb + '}';
+        return super.toString() + "Laptop{" + "tama\u00f1oPantalla=" + tamañoPantalla + ", cantUsb=" + cantUsb + '}';
     }
     
     

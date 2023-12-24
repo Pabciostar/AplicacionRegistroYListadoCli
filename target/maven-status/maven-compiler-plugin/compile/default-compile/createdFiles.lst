@@ -9,8 +9,11 @@ view\RegistroEquipo$6.class
 view\RegistroCliente$2.class
 cl\pablo\lopezpabloexamenpyg\Desktop.class
 view\RegistroEquipo.class
+view\ListadoEquipos$1.class
+view\ListadoEquipos.class
 view\ListadoClientes.class
 view\RegistroEquipo$3.class
+view\ListadoEquipos$3.class
 view\RegistroCliente.class
 cl\pablo\lopezpabloexamenpyg\Laptop.class
 view\Informes.class
@@ -24,11 +27,12 @@ view\MenuPrincipal$3.class
 view\RegistroCliente$4.class
 view\RegistroEquipo$2.class
 view\IniciarVenta$1.class
+view\ListadoEquipos$2.class
+view\IniciarVenta$2.class
 view\IniciarVenta.class
 view\RegistroCliente$1.class
 view\MenuPrincipal$4.class
 view\RegistroCliente$3.class
-view\RegistroEquipo$7.class
 view\MenuPrincipal$1.class
 view\Informes$1.class
 view\RegistroEquipo$4.class

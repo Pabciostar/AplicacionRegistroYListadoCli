@@ -81,36 +81,30 @@ public final class ArraysDB {
         return listaCli;
     }
     
+    //Se utiliza el método listar_equipos sin necesidad de crear un ArrayList() para cada hijo de Equipo. Mejor se utiliza polimorfismo.
     public List<Equipo> listar_equipos (){
-        List<Desktop> listaDesktop = new ArrayList();
-        List<Laptop> listaLaptop = new ArrayList();
         List<Equipo> listaEquip = new ArrayList();
         this.desktop.forEach(desktop -> {
-            Desktop dbDesktop = new Desktop();
-            dbDesktop.setCpu(desktop.getCpu());
-            dbDesktop.setDiscoDuro(desktop.getDiscoDuro());
-            dbDesktop.setModelo(desktop.getModelo());
-            dbDesktop.setPrecio(desktop.getPrecio());
-            dbDesktop.setRam(desktop.getRam());
-            dbDesktop.setFactorForma(desktop.getFactorForma());
-            dbDesktop.setFuentePoder(desktop.getFuentePoder());
-            listaDesktop.add(desktop);
+            listaEquip.add(new Desktop (desktop.getFuentePoder(),
+                    desktop.getFactorForma(),
+                    desktop.getModelo(),
+                    desktop.getCpu(),
+                    desktop.getDiscoDuro(),
+                    desktop.getRam(),
+                    desktop.getPrecio(), 
+                    desktop.getTipoEquipo()));
         });
         
         this.laptop.forEach(laptop -> {
-            Laptop dbLaptop = new Laptop();
-            dbLaptop.setCpu(laptop.getCpu());
-            dbLaptop.setDiscoDuro(laptop.getDiscoDuro());
-            dbLaptop.setModelo(laptop.getModelo());
-            dbLaptop.setPrecio(laptop.getPrecio());
-            dbLaptop.setRam(laptop.getRam());
-            dbLaptop.setCantUsb(laptop.getCantUsb());
-            dbLaptop.setTamañoPantalla(laptop.getTamañoPantalla());
-            listaLaptop.add(laptop);
-            });
-        
-        listaEquip.addAll(listaDesktop);
-        listaEquip.addAll(listaLaptop);
+            listaEquip.add(new Laptop (laptop.getTamañoPantalla(),
+                    laptop.getCantUsb(),
+                    laptop.getModelo(),
+                    laptop.getCpu(),
+                    laptop.getDiscoDuro(),
+                    laptop.getRam(),
+                    laptop.getPrecio(),
+                    laptop.getTipoEquipo()));
+        });
         
         return listaEquip;
     }

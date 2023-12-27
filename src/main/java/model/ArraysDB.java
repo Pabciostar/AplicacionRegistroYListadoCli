@@ -81,32 +81,8 @@ public final class ArraysDB {
         return listaCli;
     }
     
-    //Se utiliza el método listar_equipos sin necesidad de crear un ArrayList() para cada hijo de Equipo. Mejor se utiliza polimorfismo.
     public List<Equipo> listar_equipos (){
-        List<Equipo> listaEquip = new ArrayList();
-        this.desktop.forEach(desktop -> {
-            listaEquip.add(new Desktop (desktop.getFuentePoder(),
-                    desktop.getFactorForma(),
-                    desktop.getModelo(),
-                    desktop.getCpu(),
-                    desktop.getDiscoDuro(),
-                    desktop.getRam(),
-                    desktop.getPrecio(), 
-                    desktop.getTipoEquipo()));
-        });
-        
-        this.laptop.forEach(laptop -> {
-            listaEquip.add(new Laptop (laptop.getTamañoPantalla(),
-                    laptop.getCantUsb(),
-                    laptop.getModelo(),
-                    laptop.getCpu(),
-                    laptop.getDiscoDuro(),
-                    laptop.getRam(),
-                    laptop.getPrecio(),
-                    laptop.getTipoEquipo()));
-        });
-        
-        return listaEquip;
+        return this.equipos;
     }
     //Si encuentra un cliente por rut, lo devuelve. Si no lo encuentra devuelve uno vacío;
     public Cliente buscarCliente(String rutIngresado){
@@ -121,6 +97,10 @@ public final class ArraysDB {
         });
         return clienteSeleccionado;
     }
+    
+    public void realizarVenta(Venta venta){
+        ventas.add(venta);
+    };
 
     
     

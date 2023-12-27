@@ -11,25 +11,19 @@ import java.time.LocalDateTime;
  * @author pablo
  */
 public class Venta {
-    private String nombreCliente;
-    private String rutCliente;
-    private LocalDateTime fecha;
+    public String rutCliente;
+    public String modeloEquipo;
+    public int precio;
+    public LocalDateTime fecha;
 
     public Venta() {
     }
 
-    public Venta(String nombreCliente, String rutCliente, LocalDateTime fecha) {
-        this.nombreCliente = nombreCliente;
+    public Venta(String rutCliente, String modeloEquipo, int precio, LocalDateTime fecha) {
         this.rutCliente = rutCliente;
+        this.modeloEquipo = modeloEquipo;
+        this.precio = precio;
         this.fecha = fecha;
-    }
-
-    public String getNombreCliente() {
-        return nombreCliente;
-    }
-
-    public void setNombreCliente(String nombreCliente) {
-        this.nombreCliente = nombreCliente;
     }
 
     public String getRutCliente() {
@@ -38,6 +32,22 @@ public class Venta {
 
     public void setRutCliente(String rutCliente) {
         this.rutCliente = rutCliente;
+    }
+
+    public String getModeloEquipo() {
+        return modeloEquipo;
+    }
+
+    public void setModeloEquipo(String modeloEquipo) {
+        this.modeloEquipo = modeloEquipo;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
     public LocalDateTime getFecha() {
@@ -50,8 +60,11 @@ public class Venta {
 
     @Override
     public String toString() {
-        return "Venta{" + "nombreCliente=" + nombreCliente + ", rutCliente=" + rutCliente + ", fecha=" + fecha + '}';
+        return "Venta{" + "rutCliente=" + rutCliente + ", modeloEquipo=" + modeloEquipo + ", precio=" + precio + ", fecha=" + fecha + '}';
     }
+
+    
+    
     
     
 }

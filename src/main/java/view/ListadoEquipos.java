@@ -47,6 +47,7 @@ public class ListadoEquipos extends javax.swing.JFrame {
             tbl_lista_equipos.setValueAt(listEqui.get(i).getTipoEquipo(), i, 5);
 
         }
+
     }
 
     /**

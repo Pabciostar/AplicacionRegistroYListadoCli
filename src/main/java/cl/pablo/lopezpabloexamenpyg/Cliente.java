@@ -9,13 +9,14 @@ package cl.pablo.lopezpabloexamenpyg;
  * @author pablo
  */
 public class Cliente {
-<<<<<<< HEAD
-=======
+
     private String rut;
     private String nombre;
     private String correo;
     private String telefono;
->>>>>>> main
+
+    public Cliente() {
+    }
    
 
     public Cliente(String rut, String nombre, String correo, String telefono) {

@@ -54,11 +54,9 @@ public class ListadoClientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txt_rut_filt = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbl_lista_clientes = new javax.swing.JTable();
-        btn_busc_cli = new javax.swing.JButton();
+        btn_volver = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -77,14 +75,6 @@ public class ListadoClientes extends javax.swing.JFrame {
 
         jLabel1.setText("Registro de Clientes");
 
-        jLabel2.setText("Buscar por rut:");
-
-        txt_rut_filt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_rut_filtActionPerformed(evt);
-            }
-        });
-
         tbl_lista_clientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -98,10 +88,10 @@ public class ListadoClientes extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tbl_lista_clientes);
 
-        btn_busc_cli.setText("Buscar");
-        btn_busc_cli.addActionListener(new java.awt.event.ActionListener() {
+        btn_volver.setText("Volver");
+        btn_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_busc_cliActionPerformed(evt);
+                btn_volverActionPerformed(evt);
             }
         });
 
@@ -111,47 +101,38 @@ public class ListadoClientes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_rut_filt, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(btn_busc_cli)
-                        .addGap(0, 50, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(147, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(143, 143, 143))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(153, 153, 153)
+                .addComponent(btn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_rut_filt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_busc_cli))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_volver)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_rut_filtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_rut_filtActionPerformed
+    private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_rut_filtActionPerformed
-
-    private void btn_busc_cliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_busc_cliActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btn_busc_cliActionPerformed
+        RegistroCliente registroCliente = new RegistroCliente();
+        registroCliente.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btn_volverActionPerformed
 
     
     /**
@@ -190,13 +171,11 @@ public class ListadoClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_busc_cli;
+    private javax.swing.JButton btn_volver;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable tbl_lista_clientes;
-    private javax.swing.JTextField txt_rut_filt;
     // End of variables declaration//GEN-END:variables
 }

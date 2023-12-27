@@ -130,7 +130,7 @@ public class IniciarVenta extends javax.swing.JFrame {
         ArraysDB DB = ArraysDB.getConexion();
         Cliente cliente = DB.buscarCliente(rutCliente);
         //valida que el cliente exista
-        if (cliente.getRut().isEmpty()) {
+        if (cliente.getRut() == null) {
             System.out.println("No existe el cliente en la base de datos");
             return;
         };

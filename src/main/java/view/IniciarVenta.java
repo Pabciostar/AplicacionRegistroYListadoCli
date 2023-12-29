@@ -85,6 +85,11 @@ public class IniciarVenta extends javax.swing.JFrame {
         jLabel1.setText("Ingrese rut");
 
         btn_volver.setText("Volver");
+        btn_volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_volverActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Iniciar venta");
 
@@ -226,7 +231,15 @@ public class IniciarVenta extends javax.swing.JFrame {
         DB = ArraysDB.getConexion();
         Venta venta = new Venta(rut_venta, modelo_venta, precio_venta, LocalDateTime.now());
         DB.agregar_venta(venta);
+        System.out.println(DB.listar_ventas());
     }//GEN-LAST:event_btn_realizar_ventaActionPerformed
+
+    private void btn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_volverActionPerformed
+        // TODO add your handling code here:
+        MenuPrincipal menuPrincipal = new MenuPrincipal();
+        menuPrincipal.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btn_volverActionPerformed
 
     /**
      * @param args the command line arguments

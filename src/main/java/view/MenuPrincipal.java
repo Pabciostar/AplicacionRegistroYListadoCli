@@ -69,13 +69,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(btn_menu_inf)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
-                .addComponent(btn_menu_ven)
-                .addGap(108, 108, 108))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(btn_menu_reg_cli)
@@ -83,7 +77,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
                         .addComponent(btn_menu_reg_equi))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(129, 129, 129)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(btn_menu_inf)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_menu_ven)
+                        .addGap(11, 11, 11)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -122,8 +122,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btn_menu_infActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_menu_infActionPerformed
         // TODO add your handling code here:
-        Informes informe = new Informes();
-        informe.setVisible(true);
+        GenerarReporte generarReporte = new GenerarReporte();
+        generarReporte.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_menu_infActionPerformed
 

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+
 import cl.pablo.lopezpabloexamenpyg.Cliente;
 import cl.pablo.lopezpabloexamenpyg.Desktop;
 import cl.pablo.lopezpabloexamenpyg.Equipo;
@@ -11,22 +12,26 @@ import cl.pablo.lopezpabloexamenpyg.Venta;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 /**
  *
  * @author pablo
  */
 public final class ArraysDB {
+
     public ArrayList<Cliente> clientes = new ArrayList();
     public ArrayList<Desktop> desktop = new ArrayList();
     public ArrayList<Laptop> laptop = new ArrayList();
-    public ArrayList<Equipo> equipos = new ArrayList();;
-    public ArrayList<Venta> ventas = new ArrayList();;
+    public ArrayList<Equipo> equipos = new ArrayList();
+    ;
+    public ArrayList<Venta> ventas = new ArrayList();
+    ;
 
     private static ArraysDB conexion;
-    
+
     private ArraysDB() {
     }
-    
+
     public static ArraysDB getConexion() {
         if (conexion == null) {
             conexion = new ArraysDB();
@@ -36,7 +41,7 @@ public final class ArraysDB {
             Laptop laptop2 = new Laptop("500", 1, "ghgh", "ghgh", "ghgh", "ghgh", 850000, "Laptop");
             Desktop desktop1 = new Desktop("400", "400", "jdjd", "ksks", "jsjsj", "ksks", 600000, "Desktop");
             Desktop desktop2 = new Desktop("500", "600", "jdjd", "ksks", "jsjsj", "ksks", 550000, "Desktop");
-            
+
             conexion.agregar_cliente(cliente1);
             conexion.agregar_cliente(cliente2);
             conexion.agregar_laptop(laptop1);
@@ -46,9 +51,7 @@ public final class ArraysDB {
         }
         return conexion;
     }
-    
-    
-    
+
     public void agregar_desktop(Desktop desktop) {
         this.desktop.add(desktop);
         equipos.add(desktop);
@@ -62,12 +65,12 @@ public final class ArraysDB {
     public void agregar_cliente(Cliente cliente) {
         clientes.add(cliente);
     }
-        
+
     public void agregar_venta(Venta venta) {
         ventas.add(venta);
     }
-    
-    public List<Cliente> listar_clientes (){
+
+    public List<Cliente> listar_clientes() {
         List<Cliente> listaCli = new ArrayList();
         clientes.forEach(cliente -> {
             Cliente dbCli = new Cliente();
@@ -77,18 +80,25 @@ public final class ArraysDB {
             dbCli.setTelefono(cliente.getTelefono());
             listaCli.add(cliente);
         });
-        
+
         return listaCli;
     }
+
+    public List<Venta> listar_ventas() {
+        return this.ventas;
+    }
+
+    ;
     
-    public List<Equipo> listar_equipos (){
+    public List<Equipo> listar_equipos() {
         return this.equipos;
     }
+
     //Si encuentra un cliente por rut, lo devuelve. Si no lo encuentra devuelve uno vacío;
-    public Cliente buscarCliente(String rutIngresado){
+    public Cliente buscarCliente(String rutIngresado) {
         Cliente clienteSeleccionado = new Cliente();
         clientes.forEach(cliente -> {
-            if (cliente.getRut().equals(rutIngresado)){
+            if (cliente.getRut().equals(rutIngresado)) {
                 clienteSeleccionado.setRut(cliente.getRut());
                 clienteSeleccionado.setNombre(cliente.getNombre());
                 clienteSeleccionado.setCorreo(cliente.getCorreo());
@@ -97,11 +107,41 @@ public final class ArraysDB {
         });
         return clienteSeleccionado;
     }
-    
-    public void realizarVenta(Venta venta){
-        ventas.add(venta);
-    };
 
+    public List<ReporteODM> ObtenerDatosReporte() {
+        List<ReporteODM> listaReporte = new ArrayList();
+        ventas.forEach(venta -> {
+            // por cada venta obtener  nombre, telefono, correo cliente, modelo y precio
+            ReporteODM reporteODM = new ReporteODM();
+            Cliente clienteReporte = buscarCliente(venta.getRutCliente());
+            Equipo equipoReporte = buscarEquipo(venta.getModeloEquipo());
+            // por cada venta añadir a List<ReporteODM> una instancia con los datos obtenidos de venta
+            reporteODM.setCorreo(clienteReporte.getCorreo());
+            reporteODM.setNombre(clienteReporte.getNombre());
+            reporteODM.setTelefono(clienteReporte.getTelefono());
+            reporteODM.setModelo(equipoReporte.getModelo());
+            reporteODM.setPrecio(venta.getPrecio());
+
+            listaReporte.add(reporteODM);
+
+        });
+        return listaReporte;
+    }
+
+    ;
     
     
+// metodo que sirve para el metodo ObtenerDatosReporte
+    private Equipo buscarEquipo(String modelo) {
+        Equipo equipoBuscado = new Equipo();
+        equipos.forEach(equipo -> {
+            if (equipo.getModelo().equals(modelo)) {
+                equipoBuscado.setModelo(equipo.getModelo());
+                equipoBuscado.setPrecio(equipo.getPrecio());
+                equipoBuscado.setTipoEquipo(equipo.getTipoEquipo());
+            }
+        });
+        return equipoBuscado;
+    }
+
 }

@@ -111,6 +111,9 @@ public class GenerarReporte extends javax.swing.JFrame {
 
     private void btn_detalle_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_detalle_ventasActionPerformed
         // TODO add your handling code here:
+        InformeVentas informeVentas = new InformeVentas();
+        informeVentas.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btn_detalle_ventasActionPerformed
 
     /**

@@ -33,8 +33,8 @@ public class InformeEquiposVendidos extends javax.swing.JFrame {
             "Precio",}, listaReporte.size()
         ));
         // por cada objeto en la lista se crea una nueva fila con sus datos;
+
         for (int i = 0; i < listaReporte.size(); i++) {
-            String precioString = String.valueOf(listaReporte.get(i).getPrecio());
             tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getNombre(), i, 0);
             tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getModelo(), i, 1);
             tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getTelefono(), i, 2);
@@ -42,6 +42,9 @@ public class InformeEquiposVendidos extends javax.swing.JFrame {
             tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getPrecio(), i, 4);
 
         }
+//        for (int i = 0; i < tbl_equipos_vendidos.getRowCount()-1; i++){
+//                tbl_equipos_vendidos.remove(i);
+//            }
     }
 
     /**
@@ -57,6 +60,7 @@ public class InformeEquiposVendidos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_equipos_vendidos = new javax.swing.JTable();
         btn_volver = new javax.swing.JButton();
+        cbx_filtro_tipo_equipo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,14 +86,17 @@ public class InformeEquiposVendidos extends javax.swing.JFrame {
             }
         });
 
+        cbx_filtro_tipo_equipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Laptop", "Desktop", " " }));
+        cbx_filtro_tipo_equipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbx_filtro_tipo_equipoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,12 +106,20 @@ public class InformeEquiposVendidos extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cbx_filtro_tipo_equipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbx_filtro_tipo_equipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -122,6 +137,51 @@ public class InformeEquiposVendidos extends javax.swing.JFrame {
         generarReporte.setVisible(true);
         dispose();
     }//GEN-LAST:event_btn_volverActionPerformed
+
+    //ARREGLAR FILTRO: La tabla no se resetea
+    private void cbx_filtro_tipo_equipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbx_filtro_tipo_equipoActionPerformed
+        // TODO add your handling code here:
+//        if (cbx_filtro_tipo_equipo.getSelectedItem().equals("Todos")) {
+//            List<ReporteODM> listaReporte = DB.ObtenerDatosReporte();
+//            System.out.println(listaReporte);
+//            for (int i = 0; i < tbl_equipos_vendidos.getRowCount(); i++){
+//                tbl_equipos_vendidos.remove(i);
+//            }
+//            for (int i = 0; i < listaReporte.size(); i++) {
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getNombre(), i, 0);
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getModelo(), i, 1);
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getTelefono(), i, 2);
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getCorreo(), i, 3);
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getPrecio(), i, 4);
+//            }
+//        } else if (cbx_filtro_tipo_equipo.getSelectedItem().equals("Laptop")) {
+//            List<ReporteODM> listaReporte = DB.ObtenerDatosReporteFiltrado("Laptop");
+//            System.out.println(listaReporte);
+//            for (int i = 0; i < tbl_equipos_vendidos.getRowCount(); i++){
+//                tbl_equipos_vendidos.remove(i);
+//            }
+//            for (int i = 0; i < listaReporte.size(); i++) {
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getNombre(), i, 0);
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getModelo(), i, 1);
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getTelefono(), i, 2);
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getCorreo(), i, 3);
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getPrecio(), i, 4);
+//            }
+//        } else if (cbx_filtro_tipo_equipo.getSelectedItem().equals("Desktop")){
+//            List<ReporteODM> listaReporte = DB.ObtenerDatosReporteFiltrado("Desktop");
+//            System.out.println(listaReporte);
+//            for (int i = 0; i < tbl_equipos_vendidos.getRowCount(); i++){
+//                tbl_equipos_vendidos.remove(i);
+//            }
+//            for (int i = 0; i < listaReporte.size(); i++) {
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getNombre(), i, 0);
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getModelo(), i, 1);
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getTelefono(), i, 2);
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getCorreo(), i, 3);
+//                tbl_equipos_vendidos.setValueAt(listaReporte.get(i).getPrecio(), i, 4);
+//            }
+//        }
+    }//GEN-LAST:event_cbx_filtro_tipo_equipoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,6 +220,7 @@ public class InformeEquiposVendidos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_volver;
+    private javax.swing.JComboBox<String> cbx_filtro_tipo_equipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbl_equipos_vendidos;
